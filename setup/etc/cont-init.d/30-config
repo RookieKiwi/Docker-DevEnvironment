@@ -1,0 +1,17 @@
+#!/usr/bin/with-contenv bash
+
+mkdir -p /config/{extensions,data,workspace,.ssh}
+
+if [ -n "${SUDO_PASSWORD}" ]; then
+  echo "setting up sudo access"
+  if ! grep -q 'codemonkey' /etc/sudoers; then
+    echo "adding codemonkey to sudoers"
+    echo "codemonkey ALL=(ALL:ALL) ALL" >> /etc/sudoers
+  fi
+  echo "setting sudo password"
+  echo -e "${SUDO_PASSWORD}\n${SUDO_PASSWORD}" | passwd codemonkey
+fi
+
+# permissions
+chown -R codemonkey:codemonkey \
+	/config
