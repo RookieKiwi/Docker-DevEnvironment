@@ -1,4 +1,5 @@
 FROM debian:buster-slim
+ENV PATH="/usr/lib/code-server/bin:${PATH}"
 
 RUN \
     apt-get update -y && apt-get install curl -y && \
