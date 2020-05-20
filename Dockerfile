@@ -7,3 +7,5 @@ RUN \
     rm code-server_3.3.1_amd64.deb
     
 EXPOSE 8080
+
+CMD ["code-server"]
