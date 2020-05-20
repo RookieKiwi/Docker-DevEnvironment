@@ -6,6 +6,6 @@ RUN \
     dpkg -i code-server_3.3.1_amd64.deb && \
     rm code-server_3.3.1_amd64.deb
     
-EXPOSE 8080
+EXPOSE 31337
 
-CMD ["code-server"]
+CMD ["code-server --auth none --bind-addr 0.0.0.0:31337"]
