@@ -1,5 +1,4 @@
 FROM debian:buster-slim
-ENV PATH="/usr/lib/code-server/bin:${PATH}"
 
 RUN \
     apt-get update -y && apt-get install curl -y && \
@@ -9,4 +8,4 @@ RUN \
     
 EXPOSE 31337
 
-CMD ["code-server --auth none --bind-addr 0.0.0.0:31337"]
+CMD ["/usr/lib/code-server/bin/code-server --auth none --bind-addr 0.0.0.0:31337"]
